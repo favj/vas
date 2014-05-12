@@ -1,0 +1,94 @@
+﻿<local:BasePage
+    x:Class="Tymetrix.T360.Mobile.Client.AppWP8.Invoice.InvoiceListing"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    xmlns:local="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common"
+    xmlns:my="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common"
+    xmlns:v="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.Util;assembly=Tymetrix.T360.Mobile.Client.Common"  Background="#FF08212D">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#08212D">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <local:PageHeader Grid.Row="0" VerticalAlignment="Center" x:Name="pageHeader" HeaderTitle="" IsNavBarRequired="False" HeaderRectColor="#FF96A030" Visibility="{Binding HeaderVisible}"/>
+        <local:CustomSearch Grid.Row="0" x:Name="invoiceSearch" Visibility="{Binding SearchTextVisible}"/>
+        <TextBlock Grid.Row="1" Foreground="#666666" Text="no data found" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="28" Margin="20,20,0,0" Visibility="{Binding NoDataFound}"/>
+        <ListBox Name="lbInvoice" ItemsSource="{Binding InvoiceList}" Grid.Row="1" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Visibility="{Binding DataFound}" Opacity="{Binding ListOpacity}" IsEnabled="{Binding ListEnable}" SelectionChanged="lbInvoice_SelectionChanged" Margin="{Binding ListMargin}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,0,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" IsChecked="{Binding IsCheckboxChecked, Mode=TwoWay}" VerticalAlignment="Center" Visibility="{Binding CheckVisible}"/>
+                        <Grid Grid.Column="1" Margin="10,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!--TextBlock Grid.Row="0" FontSize="28" Text="{Binding InvoiceNumberToDisplay}" HorizontalAlignment="Stretch" FontWeight="Bold" TextWrapping="NoWrap" Visibility="{Binding FlagNotVisible}"/-->
+                            <TextBlock Grid.Row="0" FontSize="28" Text="Inv #" HorizontalAlignment="Stretch" FontWeight="Bold" TextWrapping="NoWrap" Visibility="{Binding FlagNotVisible}"/>
+                            <TextBlock Grid.Row="0" FontSize="28" Text="{Binding InvoiceNumber}" HorizontalAlignment="Stretch" FontWeight="Bold" TextWrapping="NoWrap" Visibility="{Binding FlagNotVisible}" Margin="65,0,0,0"/>
+                            <Grid Grid.Row="0" Visibility="{Binding FlagVisible}" Margin="0,0,3,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <!--TextBlock Grid.Row="0" FontSize="28" Text="{Binding InvoiceNumberToDisplay}" HorizontalAlignment="Stretch" FontWeight="Bold" TextWrapping="NoWrap"/-->
+                                <TextBlock Grid.Column="0" FontSize="28" Text="Inv #" HorizontalAlignment="Left" FontWeight="Bold" TextWrapping="NoWrap"/>
+                                <TextBlock Grid.Column="0" FontSize="28" Text="{Binding InvoiceNumber}" HorizontalAlignment="Stretch" FontWeight="Bold" TextTrimming="WordEllipsis" TextWrapping="NoWrap" Margin="65,0,0,0"/>
+                                <Image Grid.Column="1" Source="/Resources/images/T360_greenflag@2x.png" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="30" Height="30"/>
+                                <TextBlock Grid.Column="2" Foreground="#FFA800" Text="{Binding FlagsCountToDisplay}" TextAlignment="Left" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center"/>
+                            </Grid>
+                            <TextBlock Grid.Row="1" Text="{Binding CompanyName}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="24" TextTrimming="WordEllipsis"/>
+                            <Grid Grid.Row="2" Margin="0,0,3,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="155"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Foreground="#00A2DE" Text="{Binding MatterName}" HorizontalAlignment="Stretch" FontSize="22" TextTrimming="WordEllipsis"/>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Foreground="White" HorizontalAlignment="Left" Text="Billed:" TextTrimming="WordEllipsis" TextWrapping="NoWrap"/>
+                                    <TextBlock Foreground="#00A2DE" HorizontalAlignment="Stretch" Text="{Binding BilledAmountToDisplay}" TextTrimming="None" TextWrapping="NoWrap" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Row="3" Margin="0,0,3,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="155"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Left" Text="{Binding InvoiceDate}" Foreground="#00A2DE" FontSize="22"/>
+                                <TextBlock Grid.Column="0" Text="{Binding DaysInQueueToDisplay}" Foreground="#FFA800" FontSize="22" HorizontalAlignment="Left" TextTrimming="WordEllipsis" Margin="115,0,0,0"/>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Foreground="White" HorizontalAlignment="Left" Text="Net:" TextTrimming="WordEllipsis" TextWrapping="NoWrap"/>
+                                    <TextBlock Foreground="#00A2DE" HorizontalAlignment="Stretch" Text="{Binding NetAmountToDisplay}" TextTrimming="None" TextWrapping="NoWrap" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+
+</local:BasePage>

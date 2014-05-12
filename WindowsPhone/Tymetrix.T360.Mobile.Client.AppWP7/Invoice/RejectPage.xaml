@@ -1,0 +1,75 @@
+﻿<local:BasePage 
+    x:Class="Tymetrix.T360.Mobile.Client.AppWP7.Invoice.RejectPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common"
+    xmlns:my="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common"
+    Background="#FF08212D">
+
+    <Grid x:Name="LayoutRoot" Background="#08212D">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <my:InvoiceHeader x:Name="invoiceHeader" Grid.Row="0"/>
+        <!--ContentPanel - place additional content here-->
+            <TextBlock Grid.Row="1" Name="rejectTitle" Text="Reject" FontSize="28" Margin="10,-5,0,0" />
+                <ScrollViewer Grid.Row="1" Width="Auto" Margin="0,35,0,0" Grid.RowSpan="2">
+                <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="grid2" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="59*" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="222" />
+                        <RowDefinition Height="63" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="your net amount is" FontWeight="Medium" HorizontalAlignment="Left" FontSize="54" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right" FontSize="38" Name="netAmountTextBlock" VerticalAlignment="Top" Foreground="#FF018CBB" Margin="10,0,10,0" />
+                    <Rectangle HorizontalAlignment="Stretch" Grid.Row="2" Height="38" Margin="12,0,12,0" Name="rectangle3" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Fill="#FF1D87FF" />
+                    <TextBlock Grid.Row="2" Height="38" HorizontalAlignment="Left" Margin="18,0,0,0" Name="ReasonLabel" Text="Reason" VerticalAlignment="Top" Width="91" FontSize="25" FontWeight="Bold" />
+                    <toolkit:ListPicker Grid.Row="3" Height="Auto" Margin="12,10,12,6" Name="reasonPicker" VerticalContentAlignment="Center" VerticalAlignment="Center" FullModeHeader="Reject Reasons">
+                        <toolkit:ListPicker.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </toolkit:ListPicker.ItemTemplate>
+                        <toolkit:ListPicker.FullModeItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}" FontSize="36" Margin="10,30,0,0" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </toolkit:ListPicker.FullModeItemTemplate>
+                    </toolkit:ListPicker>
+                    <Rectangle Grid.Row="4" Height="43" Name="rectangle2" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Fill="#FF0A92FF" Margin="12,15,12,0" />
+                    <TextBlock Grid.Row="4" Height="33" Margin="18,10,0,0" Name="textBlock3" Text="Narrative" VerticalAlignment="Center" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Width="145" />
+                    <TextBox Grid.Row="5" Name="narrativeTextBox" Text="" Margin="2,0,0,6" TextWrapping="Wrap" Grid.RowSpan="2" InputScope="Text"/>
+                </Grid>
+            </ScrollViewer>
+    </Grid>
+  
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="Resources/images/summary_icon.png" Text="Summary" Click="ApplicationBarSummary_Click" />
+            <shell:ApplicationBarIconButton IconUri="Resources/images/lineitem_icon.png" Text="Line Items" Click="ApplicationBarLineItems_Click" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Invoice Summary"/>
+                <shell:ApplicationBarMenuItem Text="Line Items"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+-->
+</local:BasePage>

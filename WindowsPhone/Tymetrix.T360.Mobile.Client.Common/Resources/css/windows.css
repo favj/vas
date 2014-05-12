@@ -1,0 +1,381 @@
+/*Project Name : Tymetrix
+   Platform : Window Mobile
+   Change log : 
+	1. Line height problem fixed.
+	2. Common issue : Added definition for text truncate class.
+*/
+* { padding: 0; margin: 0; font-family : Segoe WP ;}
+
+	body{
+		background  : #08212D;
+	    line-height : 22px;
+		height      : 100%;
+		margin		: 0px;
+		-webkit-text-size-adjust : none; 
+	}
+
+	html{
+		height  : 100%;
+		width   : 100%;
+		padding : 0px;
+		margin  : 0px;
+	}
+	
+ul, ol { list-style-type: none; }
+
+
+
+h4.title {
+    color: #ffffff;
+    font-size: 16px;
+	font-family:Segoe WP Semibold;
+    padding: 5px 10px;
+	background: #018CBB;
+	margin:0px 0px 15px;
+	
+}
+h6.subtitle {color: #0099CC; font-size: 15px; font-weight: bold; margin: 4px 0 5px 10px;}
+/*summary*/
+.contents{padding:0 10px;}
+
+.contents ul li {overflow: hidden;padding: 4px 0px; clear: both;margin-bottom:5px;}
+.contents ul li label {display: block; color: #ffffff; font-size: 20px;}
+
+/*************************** To break a long word use this property, word-wrap:break-word **************************************/
+
+.contents ul li span {display: block; color: #00BFFF; font-size: 14px; word-wrap:break-word; }
+.contents p{color: #385487; font-size: 14px;}
+
+
+/*clearfix hack*/
+.clear:before,.clear:after {
+	content:"";
+	display:table;
+}
+.clear:after {
+	clear:both;
+}
+.clear {
+	zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*Add this class to the data to be truncated*/
+.truncate {
+	width: 100% !important; /*specify the width below which the text truncation should occur.. should work now..:-)*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/*for display block elements*/
+.truncatemore {
+    width:99.99% !important;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+ 
+}
+/*Invoice list*/
+
+#main {
+	width:100%;
+	height:100%;
+	background:#08212D;
+	color:#fff;
+}
+#invoicelist {
+	height:auto;
+	width:100%;
+	padding:0px;
+}
+
+ul {
+	list-style:none;
+}
+li.inv-list {
+	padding:5px;
+}
+.gen-values {
+	color:#0099CC;
+}
+/*code for windows*/
+#inv-no {
+	color:#96A030 !important;
+}
+/*code for windows*/
+#inv-nowrap h1 {
+	display:block;
+	font-size:18px;
+	padding-bottom:5px;
+	margin:0;
+	color:#96A030 !important;
+}
+#inv-namewrap {
+	display:block;
+	font-size:16px;
+	font-weight:bold;
+	color:#ffffff !important;
+
+}
+.notesdate {
+	display:block;
+}
+#infoleft {
+	float:left;
+	font-size:14px;
+}
+#inforight {
+	float:right;
+	font-size:13px;
+}
+#inv-amount span,#inv-name span {
+	float:right;
+}
+#inv-name label {
+	padding-left:10px;
+}
+.contents #reviewroute li label,.contents #reviewroute li span.checkedflag,.contents #reviewroute li span.uncheckedflag  {
+	display:inline-block !important;
+	word-wrap:break-word;
+}
+
+.checkedflag,.uncheckedflag {
+	width:28px;
+	height:28px;
+	float:left;
+	margin-right:10px;
+}
+.checkedflag {
+	background:url('/Resources/images/Checked.png') no-repeat right center;
+}
+.uncheckedflag {
+	background:url('/Resources/images/Unchecked.png') no-repeat right center;
+}													/*Line item list*/
+
+#lineitemslistpage #infoleft,#lineitemslistpage #inforight {
+	width:50%;
+}
+#lineitemslistpage .inv-list {
+	background:none;
+}
+#inv-flag {
+	text-align:right;
+	background: url('/Resources/images/redflag.png') no-repeat 90% 0%;
+	color:#9B3B00;
+	font-size:12px;
+}
+
+.invoiceflags ul li.hp {
+    background:url('/Resources/images/T360_Flags_High_Priority@2x.png') no-repeat 98% center !important;
+	padding-right:24px;
+}
+
+.invoiceflags ul li.mp {
+    background:url('/Resources/images/T360_Flags_Medium_Priority@2x.png') no-repeat 98% center !important;
+	padding-right:24px;
+}
+
+.invoiceflags ul li.lp {
+    background:url('/Resources/images/T360_Flags_Low_Priority@2x.png') no-repeat 98% center !important;
+	padding-right:24px;
+}
+
+.NoneRow {
+	background:none !important;
+}
+
+#lineitemslistpage #inv-date {
+	color :#8CA2AD;
+	font-size:13px;
+	text-align:right;
+}
+#lineitemslistpage #inv-amount {
+	font-size:15px;
+	text-align:right;
+
+}
+#lineitemslistpage #amount {
+	float:none;
+}
+#inv-description {
+	color:#BABABA;
+	font-size:14px;
+
+}
+#lineitemslistpage #inv-namewrap {
+	font-size:16px;
+}
+/*put orientation specific styles here*/
+@media (orientation:landscape) {
+#lineitemslistpage #inv-amount {
+	font-size:16px !important;
+	
+}
+#inv-description {
+	font-size:16px !important;
+}
+#lineitemslistpage #inv-date {
+	color :#8CA2AD;
+	font-size:14px;
+	text-align:right;
+}
+#lineitemslistpage #inv-namewrap {
+	font-size:18px;
+}
+
+  }
+												/*Line item details*/
+#lineitemdetails {
+	padding-bottom:20px;
+}
+.column2 ul li label {
+	display:block;
+}
+.column2 ul li  span {
+	display:block;
+}
+#narrative {
+	color:#ffffff !important;
+	word-wrap:break-word;
+}
+
+.itemflags ul li.hp {
+    background:url('/Resources/images/T360_Flags_High_Priority@2x.png') no-repeat 98% center;
+	padding-right:24px;
+}
+
+.itemflags ul li.mp {
+    background:url('/Resources/images/T360_Flags_Medium_Priority@2x.png') no-repeat 98% center;
+	padding-right:24px;
+}
+
+.itemflags ul li.lp {
+    background:url('/Resources/images/T360_Flags_Low_Priority@2x.png') no-repeat 98% center;
+	padding-right:24px;
+}
+
+
+												/*Support*/
+#support {
+	padding: 4px 8px 15px;
+}
+.supportemail::after {
+content:'wolterskluwer.com';
+}
+
+.scontents {
+	background: #08212D;
+	margin-bottom:10px;
+	border-bottom : 1px solid #2F586D;
+}
+div.scontents:last-child {
+	border:none !important;
+}
+.scontents ul li {min-height: 30px; padding: 8px 8px; }
+.scontents ul li:last-child {
+	 border-bottom : none;
+}
+.supportheading label {
+	font-size:20px !important;
+	font-family:Segoe WP Semibold;
+	color:#ffffff !important;
+	font-weight:600;
+	float:none !important;
+}		
+.supportvalues {										
+	font-size:14px !important;
+	color:#00A5DD;
+	word-break:break-word;
+}
+
+span.supportvalues a {text-decoration: none; color:#00A5DD;}
+
+#phone  label, #email label{
+	display:block;
+}
+.star {
+	float:none !important;
+	color:#FF0000 !important;
+}
+.star sup {
+	font-size:18px;
+}	
+#starred {
+	
+}
+.toggleview {
+	background:url()
+}
+#support div.cleardiv  li:last-child {
+	background:#8C4E73;
+}
+#starred,#starred + div {
+	color:#000000 !important;
+	float:none !important;
+	padding-left:0px;
+}
+#starred + div {
+	font-weight:bold;
+	font-size:14px;
+	padding-top:0px;
+}
+.spanclick {
+	display:none !important;
+	height:0;
+}
+
+
+
+	/*FAQS*/
+#faqs {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#487085), color-stop(5%,#3B6A83), color-stop(25%,#2C627F), color-stop(94%,#1E4A65), color-stop(100%,#0E334C)) no-repeat center center fixed;
+}
+.accordion {
+	padding:10px 15px;
+}
+.accordionlist {
+    margin-bottom:10px;
+}
+.accordionlist > div:first-child {
+	padding:5px 5px 20px 5px;
+	position:relative;
+	border-bottom:#5f879f solid 1px;
+	
+}
+.open {
+	display:none;
+}
+div.panelcontent {
+	color:#0099CC;
+	padding:10px;
+}
+.showaccord {
+	background:url('/Resources/images/arrowopen.png') left center no-repeat;
+}
+.hideaccord {
+	background:url('/Resources/images/arrowclose.png') left center no-repeat;
+}
+.toggleview {
+	width:28px;
+	border:none;
+	padding:0;
+	margin:0;
+	outline:0;
+	height:28px;
+	float:right;
+}
+
+#disclaimerbody{
+	background:#FFFFFF;
+	font-size: 16px;
+	padding:5px 5px 5px 5px;
+}
+
+#disclaimerDiv{
+	background:#FFFFFF;
+	font-size:14px;
+	line-height:24px;
+	color:#395587;
+	word-wrap:break-word;
+	margin:0;
+	padding:5px 5px 5px 5px;
+}

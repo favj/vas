@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F3E4216-F641-41A6-B5CD-062D2B8204AC}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tymetrix.T360.Mobile.Client.Model</RootNamespace>
+    <AssemblyName>Tymetrix.T360.Mobile.Client.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.WP71, Version=4.1.24.17306, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\3rdParty\GalaSoft.MvvmLight.WP71.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\3rdParty\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\ApplicationBarModel.cs" />
+    <Compile Include="Base\BaseModel.cs" />
+    <Compile Include="Base\Payload.cs" />
+    <Compile Include="Base\ServiceResponse.cs" />
+    <Compile Include="Base\Source.cs" />
+    <Compile Include="Base\UserData.cs" />
+    <Compile Include="Invoice\ApproveError.cs" />
+    <Compile Include="Invoice\ApproveErrorItem.cs" />
+    <Compile Include="Invoice\Command.cs" />
+    <Compile Include="Invoice\ConfirmationItem.cs" />
+    <Compile Include="Base\Constants.cs" />
+    <Compile Include="Dashboard\DashboardInfo.cs" />
+    <Compile Include="Invoice\AdjustInputDetails.cs" />
+    <Compile Include="Invoice\ApprovalInputDetails.cs" />
+    <Compile Include="Invoice\FlagDetails.cs" />
+    <Compile Include="Invoice\InvoiceMultiConfirmation.cs" />
+    <Compile Include="Invoice\InvoiceModel.cs" />
+    <Compile Include="Invoice\InvoiceApprovalDetails.cs" />
+    <Compile Include="Invoice\InvoiceBasicInfo.cs" />
+    <Compile Include="Invoice\InvoiceConfirmation.cs" />
+    <Compile Include="Invoice\InvoiceConfirmationDetails.cs" />
+    <Compile Include="Invoice\InvoiceDetails.cs" />
+    <Compile Include="Invoice\InvoiceErrorDetails.cs" />
+    <Compile Include="Invoice\InvoiceInputDetails.cs" />
+    <Compile Include="Invoice\InvoiceListingModel.cs" />
+    <Compile Include="Invoice\InvoiceNotes.cs" />
+    <Compile Include="Invoice\InvoiceProperty.cs" />
+    <Compile Include="Invoice\InvoiceSummary.cs" />
+    <Compile Include="Invoice\InvoiceSummaryDetails.cs" />
+    <Compile Include="Invoice\InvoiceSummaryViewModel.cs" />
+    <Compile Include="Invoice\InvoiceTaxDetails.cs" />
+    <Compile Include="Invoice\LineItemConfirmationDetails.cs" />
+    <Compile Include="Invoice\LineItem.cs" />
+    <Compile Include="Invoice\LineItemDetails.cs" />
+    <Compile Include="Invoice\LineItemInputDetails.cs" />
+    <Compile Include="Invoice\LineItemListDetails.cs" />
+    <Compile Include="Invoice\LineItemSummaryDetails.cs" />
+    <Compile Include="Invoice\LineItemTaxDetails.cs" />
+    <Compile Include="Invoice\NotesList.cs" />
+    <Compile Include="Invoice\ReasonCode.cs" />
+    <Compile Include="Invoice\ReasonCodeInputDetails.cs" />
+    <Compile Include="Invoice\RejectInputDetails.cs" />
+    <Compile Include="Invoice\ReviewRouteDetails.cs" />
+    <Compile Include="Invoice\SummaryView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPassword\Credential.cs" />
+    <Compile Include="Settings\UserSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tymetrix.T360.Mobile.Client.Core\Tymetrix.T360.Mobile.Client.Core.csproj">
+      <Project>{1FC80901-C61E-4734-9902-3E5AE1F6C5D9}</Project>
+      <Name>Tymetrix.T360.Mobile.Client.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

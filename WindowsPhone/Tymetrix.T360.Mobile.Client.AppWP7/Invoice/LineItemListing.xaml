@@ -1,0 +1,58 @@
+﻿<local:BasePage
+    x:Class="Tymetrix.T360.Mobile.Client.AppWP7.Invoice.LineItemListing"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded"
+    xmlns:local="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common"
+    xmlns:my="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common" Background="#FF08212D">
+
+    <Grid x:Name="LayoutRoot" Background="#FF08212D">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <my:PageHeader x:Name="pageHeader" HeaderTitle="Line Items" IsNavBarRequired="False"  HeaderRectColor="#FF96A030" Margin="0,-1,0,1" />
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="innerContentPanel" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <my:InvoiceHeader x:Name="invoiceHeader" Margin="0,3,0,-3" />
+            </Grid>
+
+            <Grid x:Name="innerContentPanel1" Grid.Row="1">
+                <phone:WebBrowser Background="#FF08212D" HorizontalContentAlignment="Stretch" Name="lineItemsBrowser" ScriptNotify="lineItemsBrowser_ScriptNotify" NavigationFailed="lineItemsBrowser_NavigationFailed" LoadCompleted="lineItemsBrowser_LoadCompleted" IsScriptEnabled="True" Margin="0,6,0,0" />
+            </Grid>
+        </Grid>
+    </Grid>
+    
+     <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="Resources/images/summary_icon.png" Text="Summary" Click="ApplicationBarSummary_Click" />
+            <shell:ApplicationBarIconButton IconUri="Resources/images/lineitem_icon.png" Text="Line Items"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Invoice Summary" Click="ApplicationBarSummary_Click"/>
+                <shell:ApplicationBarMenuItem Text="Line Items"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</local:BasePage>

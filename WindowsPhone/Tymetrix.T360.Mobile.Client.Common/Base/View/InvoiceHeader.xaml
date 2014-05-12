@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Tymetrix.T360.Mobile.Client.Common.Base.View.InvoiceHeader"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid  Background="#08212D" x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Rectangle Height="95" HorizontalAlignment="Left" Name="leftRectangle" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="10" Fill="#FF96A030" Grid.RowSpan="3" />
+        <TextBlock Grid.Row="0" Text="Inv #" Foreground="White" Margin="15,3,5,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Name="invoiceLabel" Text="" Foreground="White" Margin="85,3,5,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" TextTrimming="WordEllipsis" TextWrapping="NoWrap"/>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Stretch" Height="31" Name="companyLabel" Text="" VerticalAlignment="Top" FontSize="23" Margin="15,0,6,0" TextTrimming="WordEllipsis" FontWeight="Bold"/>
+        <TextBlock Grid.Row="2" Foreground="#00A2DE" HorizontalAlignment="Left" Margin="15,3,6,0" Name="matterLabel" Text="" FontSize="20" VerticalAlignment="Bottom" Grid.Column="0" TextTrimming="WordEllipsis" />
+        <TextBlock Grid.Row="3" Foreground="#00A2DE" HorizontalAlignment="Left" Margin="15,3,6,0" Name="matterNumberLabel" Text="" FontSize="20" VerticalAlignment="Bottom" Grid.Column="0" TextTrimming="WordEllipsis" />
+    </Grid>
+</UserControl>

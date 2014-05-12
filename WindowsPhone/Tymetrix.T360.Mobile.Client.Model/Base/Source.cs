@@ -1,0 +1,39 @@
+﻿/*
+ * Copyright © 2004 - 2013 TyMetrix, Inc. All Rights Reserved
+ */
+
+namespace Tymetrix.T360.Mobile.Client.Model.Base
+{
+    public enum Source
+    {
+        NONE,
+        EXTERNAL,
+        LOGON,
+        DISCLAIMER,
+        FORGOT_PASSWORD,
+        DASHBOARD,
+        SUPPORT,
+        SETTINGS,
+        FAQ,
+        INVOICE_LIST,
+        INVOICE_SUMMARY,
+        INVOICE_SINGLE_ADJUST,
+        INVOICE_SINGLE_REJECT,
+        INVOICE_MULTI_APPROVE,
+        INVOICE_MULTI_REJECT,
+        INVOICE_MULTI_REJECT_CONFIRMATION,
+        LINE_ITEM_LIST,
+        LINE_ITEM_SUMMARY,
+        LINE_ITEM_SINGLE_ADJUST,
+        LINE_ITEM_MULTI_ADJUST,
+        LINE_ITEM_MULTI_ADJUST_CONFIRMATION,
+        LINE_ITEM_SINGLE_REJECT,
+        LINE_ITEM_MULTI_REJECT,
+        LINE_ITEM_MULTI_REJECT_CONFIRMATION,
+        BACK_TO_LINE_ITEM_LIST,
+        BACK_TO_INVOICE_SUMMARY,
+        BACK_TO_INVOICE_SUMMARY_FROM_NOTES,
+        BACK_TO_LINE_ITEM_SUMMARY_FROM_NOTES,
+        BACK_TO_LINE_ITEM_SUMMARY
+    }
+}

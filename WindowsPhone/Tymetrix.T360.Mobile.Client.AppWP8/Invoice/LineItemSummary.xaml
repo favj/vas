@@ -1,0 +1,82 @@
+﻿<local:BasePage 
+    x:Class="Tymetrix.T360.Mobile.Client.AppWP8.Invoice.LineItemSummary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    xmlns:local="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common"
+    xmlns:my="clr-namespace:Tymetrix.T360.Mobile.Client.Common.Base.View;assembly=Tymetrix.T360.Mobile.Client.Common"
+    Background="#FF08212D">
+
+    <local:BasePage.Resources>
+        <DataTemplate x:Key="ItemDetailsTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Background="#018CBB" Visibility="{Binding IsHeaderView}">
+                    <TextBlock Foreground="White" Text="{Binding HeaderText}" FontSize="22" Margin="10,5,0,5" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Visibility="{Binding IsDetailView}">
+                    <TextBlock Text="{Binding DetailHeader}" FontSize="28" Foreground="#ffffff" Margin="10,10,0,0"/>
+                    <TextBlock Text="{Binding DetailValue}" FontSize="24" Foreground="#00A2DE" Margin="10,0,0,8" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Visibility="{Binding IsHeaderValueView}">
+                    <Grid Background="#018CBB">
+                        <TextBlock Foreground="White" Text="{Binding HeaderText}" FontSize="22" Margin="10,5,0,5"/>
+                    </Grid>
+                    <TextBlock Text="{Binding ValueText}" FontSize="24" Margin="10,10,0,10" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                </StackPanel>
+                <Grid Visibility="{Binding IsFlagView}" Margin="0,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding FlagName}" FontSize="28" Foreground="#ffffff" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="10,0,0,0"/>
+                    <Image Grid.Column="1" Source="{Binding ImagePath}" Margin="10,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="30"/>
+                </Grid>
+                <StackPanel Orientation="Vertical" Visibility="{Binding IsNotesView}">
+                    <TextBlock Text="{Binding Creator}" FontSize="28" Foreground="#ffffff" Grid.Row="0" HorizontalAlignment="Left" TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,0,0,0" Visibility="{Binding IsNotesRow}"/>
+                    <TextBlock Foreground="#00A2DE" FontSize="18" Text="{Binding CreatedTime}" Grid.Row="0" HorizontalAlignment="Left" TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,0,0,13" Visibility="{Binding IsNotesRow}"/>
+                    <TextBlock Foreground="#00A2DE" FontSize="24" Text="{Binding Description}" Grid.Row="0" HorizontalAlignment="Left" TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="10,0,10,0" MinHeight="80" MaxHeight="80" Visibility="{Binding IsNotesRow}"/>
+                    <Button Content="View all notes" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Command="{Binding ShowAllNotesCommand}" Width="300" Visibility="{Binding IsButtonRow}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Visibility="{Binding IsAdjustmentsView}">
+                    <TextBlock Text="{Binding Owner}" FontSize="28" Foreground="#ffffff" Margin="10,10,0,0"/>
+                    <TextBlock Text="{Binding Description}" FontSize="24" Foreground="#00A2DE" Margin="10,0,0,0" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                    <TextBlock Text="{Binding Amount}" FontSize="28" Foreground="#ffffff" Margin="10,0,0,8"/>
+                </StackPanel>
+                <StackPanel Visibility="{Binding IsNoneView}">
+                    <TextBlock Text="None" FontSize="28" Margin="10,5,0,5"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+   </local:BasePage.Resources>
+            <!--LayoutRoot is the root grid where all page content is placed-->
+            <Grid x:Name="LayoutRoot" Background="#08212D">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+                <local:InvoiceHeader Grid.Row="0" x:Name="invoiceHeader" Visibility="{Binding HeaderVisible}"/>
+                <TextBlock Grid.Row="1" FontSize="48" HorizontalAlignment="Left" Text ="Item Details" Margin="20,0,0,0" Width="436" />
+                <Grid Grid.Row="2">
+            <ListBox Name="lineItemSummary" ItemsSource="{Binding DetailsList}" ItemTemplate="{StaticResource ItemDetailsTemplate}" SelectionChanged="lineItemSummary_SelectionChanged">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </Grid>
+            </Grid>
+</local:BasePage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{367b4fc5-2890-4b85-aafb-6462c148fac6}" Title="TyMetrix 360°" RuntimeType="Silverlight" Version="2.0" Genre="apps.normal" Author="Tymetrix.T360.Mobile.Client.AppWP7 author" Description="TyMetrix 360°" Publisher="Tymetrix.T360.Mobile.Client.AppWP7">
+    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_PHONEDIALER" />
+      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="/Base/View/LogOn.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="Tymetrix.T360.Mobile.Client.AppWP7Token" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>TyMetrix 360°</Title>
+          <BackTitle>TyMetrix 360°</BackTitle>
+          <BackContent>T360</BackContent>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>
