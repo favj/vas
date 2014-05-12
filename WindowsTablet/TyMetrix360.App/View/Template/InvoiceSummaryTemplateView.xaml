@@ -1,0 +1,27 @@
+﻿<core:UserControlCore
+    xmlns:core="using:TyMetrix360.Core.ViewBase"
+    x:Class="TyMetrix360.App.View.Template.InvoiceSummaryTemplateView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TyMetrix360.App.View.Template"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <Grid Background="#C2D4F9" MinHeight="60" Margin="5,15,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="200" Width="{Binding Path=ColumnWidth}"/>
+            <ColumnDefinition MinWidth="0" Width="250" x:Name="RootGridColumn2"/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Height="27" Width="27" VerticalAlignment="Center" Source ="{Binding Path=SourceLeft}" Visibility="{Binding Path=ShowImageLeft }" HorizontalAlignment="Left" />
+        <TextBlock Grid.Column="0" VerticalAlignment="Center" Text ="{Binding Path=TextLeft}" Visibility="{Binding Path=ShowTextLeft }" HorizontalAlignment="Left" Foreground="Black" />
+        <TextBlock Grid.Column="0" Text ="{Binding Path=Key}" VerticalAlignment="{Binding Path=Valign}" Margin="{Binding Path=Margin}" HorizontalAlignment="Left" Style="{StaticResource TYLineTextLarge}" Foreground="Black" />
+        <TextBlock Grid.Column="1" Text ="{Binding Path=Value}"  VerticalAlignment="{Binding Path=Valign}" Margin="{Binding Path=Margin}" HorizontalAlignment="Right" Style="{StaticResource TYLineTextLarge}" Foreground="#0C368E" />
+        <TextBlock Grid.Column="0" VerticalAlignment="Center" Text ="{Binding Path=Value2}" Visibility="{Binding Path=CenterText }" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource TYLineTextLarge}" Foreground="Black" />
+        <Image Grid.Column="1" Height="27" Width="27" VerticalAlignment="Center" Source="{Binding Path=SourceRight}" Visibility="{Binding Path=ShowImageRight }" Grid.ColumnSpan="2" HorizontalAlignment="Right" />
+        <StackPanel Height="1" Background="#0C368E" Grid.ColumnSpan="3" VerticalAlignment="Bottom" />
+    </Grid>
+
+</core:UserControlCore>

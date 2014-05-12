@@ -1,0 +1,468 @@
+﻿<core:ViewCore 
+    xmlns:core="using:TyMetrix360.Core.ViewBase"
+    x:Class="TyMetrix360.App.View.AdjustmentView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TyMetrix360.App.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:TyMetrix360.App.Converters"
+    xmlns:converter="using:TyMetrix360.Core.Converters"
+    mc:Ignorable="d">
+    <core:ViewCore.Resources>
+        <converters:DateTimeToDateConverter x:Key="DateTimeToDateConverter" />
+        <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <DataTemplate x:Key="Reasons">
+            <TextBlock Text="{Binding Path=Description}" Foreground="Black"/>
+        </DataTemplate>
+        <DataTemplate x:Key="AdjustSummaryTemplate">
+            <Grid Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="430" Height="85">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource TYLineTextSmall}" TextTrimming="WordEllipsis" Margin="0,5,0,0">
+                    <Run Text="Inv # " />
+                    <Run Text="{Binding Path=InvoiceNumber}" />
+                </TextBlock>
+                <TextBlock Grid.Column="1" FontWeight="Bold" Style="{StaticResource TYLineTextMedium}" Grid.Row="1" Text="{Binding Path=CompanyName}" TextTrimming="WordEllipsis" HorizontalAlignment="Left" FontFamily="Segoe UI Light" />
+                <Grid Grid.Row="2" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=MatterName}" HorizontalAlignment="Left" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap"/>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="0,0,30,0">
+                        <Run Text="Billed " />
+                        <Run Text="{Binding Path=BilledAmount}" />
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=InvoiceDate, Converter={StaticResource DateTimeToDateConverter}}" HorizontalAlignment="Left" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" />
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="0,0,30,0">
+                        <Run Text="Net " />
+                        <Run Text="{Binding Path=NetAmount}" />
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="SnappedAdjustSummaryTemplate">
+            <Grid Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="320">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource TYLineTextSmall}" TextTrimming="WordEllipsis" Margin="0,5,0,0">
+                    <Run Text="Inv # " />
+                    <Run Text="{Binding Path=InvoiceNumber}" />
+                </TextBlock>
+                <TextBlock Grid.Column="1" FontWeight="Bold" Style="{StaticResource TYLineTextMedium}" Grid.Row="1" Text="{Binding Path=CompanyName}" TextTrimming="WordEllipsis" TextWrapping="NoWrap" HorizontalAlignment="Left" FontFamily="Segoe UI Light" />
+                <Grid Grid.Row="2" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=MatterName}" HorizontalAlignment="Left" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap"/>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="0,0,30,0">
+                        <Run Text="Billed " />
+                        <Run Text="{Binding Path=BilledAmount}" />
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=InvoiceDate, Converter={StaticResource DateTimeToDateConverter}}" HorizontalAlignment="Left" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" />
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="0,0,30,0">
+                        <Run Text="Net " />
+                        <Run Text="{Binding Path=NetAmount}" />
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </core:ViewCore.Resources>
+    <Grid Background="#192C54" >
+        <VisualStateManager.VisualStateGroups>
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenPortrait"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenLandscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="StandardView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="FilledView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="StandardView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="FilledView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Filled">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="StandardView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="FilledView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:Name="StandardView" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1" ZoomMode="Disabled" HorizontalScrollBarVisibility="Auto" Height="620" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled" VerticalAlignment="Top">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="9.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="backButton" Command="{Binding GoToInvoiceSummaryCommand}" Style="{StaticResource BackButtonStyle}"  VerticalAlignment="Top" Margin="20,10,0,0"/>
+                    <TextBlock Text="Adjust Invoice" Margin="0,0,0,0" Grid.Column="1" Style="{StaticResource TYHeader}" FontFamily="Segoe UI Light" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView Grid.Column="1"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Stretch"
+                          ItemContainerStyle="{StaticResource SelectedListStyle}"
+                          ItemTemplate="{StaticResource AdjustSummaryTemplate}"
+                          ItemsSource="{Binding Path=AdjustItems}"
+                          Style="{StaticResource ListSummaries}"
+                          SelectedIndex="{Binding Path=SelectedInvoice}"
+                          />
+                    <Grid Grid.Column="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.75*"/>
+                            <RowDefinition Height="0.75*"/>
+                            <RowDefinition Height="0.6*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="0.6*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="0.6*"/>
+                            <RowDefinition Height="3.5*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.7*"/>
+                                <ColumnDefinition Width="9.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalAlignment="Left" VerticalAlignment="Center" Source="ms-appx:///Assets/AdjustIcon.png" />
+                            <TextBlock Grid.Column="1" Style="{StaticResource TYLineTextMedium}" Text="You can adjust the Invoice amount from the NET available amount" TextWrapping="Wrap" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="0.95*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource TYLineTextMedium}" Text="Adjustment Type" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            <ToggleButton x:Name="feeButton" Grid.Column="1" ClickMode="Press" Content="fee" Command="{Binding Path=FeeCommand}" Width="90" Height="40" IsChecked="{Binding Path=IsFee, Mode=TwoWay}" Checked="Fee_Checked" IsEnabled="{Binding Path=IsFeeEnabled, Mode=TwoWay}"/>
+                            <ToggleButton x:Name="expenseButton" Grid.Column="2" ClickMode="Press" Content="expense" Command="{Binding Path=ExpenseCommand}" Width="90" Height="40" IsChecked="{Binding Path=IsExpense, Mode=TwoWay}" Checked="Expense_Checked" HorizontalAlignment="Right" IsEnabled="{Binding Path=IsExpenseEnabled, Mode=TwoWay}"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="0.95*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource TYLineTextMedium}" Text="Adjust " TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            <ToggleButton x:Name="byButton" Grid.Column="1" ClickMode="Press" Content="by" Command="{Binding Path=ByCommand}" IsChecked="{Binding Path=IsBy, Mode=TwoWay}" Width="90" Height="40" Checked="By_Checked"/>
+                            <ToggleButton x:Name="toButton" Grid.Column="2" ClickMode="Press" Content="to" Command="{Binding Path=ToCommand}" IsChecked="{Binding Path=IsTo, Mode=TwoWay}" Width="90" Height="40" Checked="To_Checked" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <TextBlock Grid.Row="3" Text="Amount" VerticalAlignment="Center" Style="{StaticResource TYLineTextMedium}"/>
+                        <Grid Grid.Row="4" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.9*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Width="35" Height="30" x:Name="minusPanel" Margin="-4,0,0,0" >
+                                <TextBlock x:Name="minusText" Width="35" Height="25" Grid.Column="0" Text="-" FontSize="40" Style="{StaticResource TYLineTextMedium}" Margin="4,-9,0,0" Padding="7,0,0,0"/>
+                            </StackPanel>
+                            <Button ClickMode="Press" Grid.Column="0" x:Name="minusButton" Command="{Binding MinusCommand}" VerticalAlignment="Center" Width="40" Height="35" Background="Transparent" Click="Subtract_Click" Tapped="Subtract_Tapped"/>
+
+                            <StackPanel Width="35" Height="30" Grid.Column="1" x:Name="plusPanel" >
+                                <TextBlock x:Name="plusText" Width="35" Height="30" Grid.Column="1" Text="+" FontSize="30" Style="{StaticResource TYLineTextMedium}" Margin="-6,-5,0,0" Padding="10,0,0,0" />
+                            </StackPanel>
+                            <Button ClickMode="Press" Grid.Column="1" x:Name="plusButton" Command="{Binding PlusCommand}" VerticalAlignment="Center" Width="40" Height="35" Background="Transparent"  Click="Add_Click" Tapped="Add_Tapped" IsEnabled="{Binding IsPositiveEnabled}" />
+
+                            <TextBox Grid.Column="2" x:Name="amountText" TextChanged="AdjustmentTextBox_TextChanged" KeyDown="AdjustmentTextBox_KeyDown" KeyUp="AdjustmentTextBox_KeyUp" Text="{Binding Path=AdjustedAmountStr, Mode=TwoWay}" Margin="10,0,10,0" ContextMenuOpening="onContextMenuOpening"/>
+
+                            <StackPanel Width="35" Height="30" Grid.Column="3" x:Name="dollarPanel">
+                                <TextBlock x:Name="dollarText" Width="35" Height="30" Grid.Column="3" Text="{Binding Path=CurrencyType}" FontSize="20" Style="{StaticResource TYLineTextMedium}" Margin="-3,2,0,0" Padding="14,0,0,0"/>
+                            </StackPanel>
+                            <Button ClickMode="Press" Grid.Column="3" x:Name="dollarButton" Command="{Binding DollarCommand}" VerticalAlignment="Center" Width="40" Height="35" Background="Transparent" Click="Amount_Click" Tapped="Amount_Tapped"/>
+
+                            <StackPanel Width="35" Height="30" Grid.Column="4" x:Name="percentagePanel">
+                                <TextBlock x:Name="percentageText" Width="35" Height="30" Grid.Column="4" Text="%" FontSize="20" Style="{StaticResource TYLineTextMedium}" Margin="-4,2,0,0" Padding="12,0,0,0"/>
+                            </StackPanel>
+                            <Button ClickMode="Press" Grid.Column="4" x:Name="percentageButton" Command="{Binding PercentageCommand}" VerticalAlignment="Center" Width="40" Height="35" Click="Percentage_Click" Tapped="Percentage_Tapped"/>
+                        </Grid>
+                        <TextBlock Grid.Row="5" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                            <Run Text="Your Net Amount is "/>
+                            <Run x:Name="NetAmountText" Text="{Binding Path=NetAmount, Mode=TwoWay}" Foreground="#05DBE7"/>
+                        </TextBlock>
+                        <TextBlock Grid.Row="6" Text="Reason" x:Name="reasonText" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                        <ComboBox Grid.Row ="7" Background ="White" x:Name="ReasonCodeList" 
+                            SelectedValuePath="Id" 
+                            SelectedValue="{Binding Path=SelectedReasonId, Mode=TwoWay}" 
+                            ItemsSource="{Binding Path=ReasonCodes}" 
+                            ItemTemplate="{StaticResource Reasons}"
+                            >
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <TextBlock Grid.Row="8" Text="Narrative" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="9" x:Name="narrativeText" Text="{Binding Path=NarrativeText, Mode=TwoWay}" AcceptsReturn="True" ContextMenuOpening="onContextMenuOpening" Margin="2,0,-2,0" KeyDown="narrativeText_KeyDown" KeyUp="narrativeText_KeyUp"/>
+                        <Grid Grid.Row="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Content="OK" x:Name="okButton" Command="{Binding OKCommand}" VerticalAlignment="Top" Margin="5,15,0,0" HorizontalAlignment="Right" Width="100"/>
+                            <Button Grid.Column="1" Content="Clear" x:Name="clearButton" Command="{Binding CancelCommand}" VerticalAlignment="Top" Margin="5,15,0,0" Width="100"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        </Grid>
+        <Grid x:Name="SnappedView" Background="#192C54" Width="320" Visibility="Collapsed" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row ="1" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding GoToInvoiceSummaryCommand}" Style="{StaticResource SnappedBackButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,92,0,0"/>
+            <TextBlock Text="Adjust Invoice" Grid.Row="1" Margin="70,60,0,0" Grid.Column="0" Style="{StaticResource TYLineTextExtraLarge}" FontFamily="Segoe UI Light" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <ListView Grid.Column="0"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource SelectedListStyle}"
+                    ItemTemplate="{StaticResource SnappedAdjustSummaryTemplate}"
+                    ItemsSource="{Binding Path=AdjustItems}"
+                    Style="{StaticResource ListSummaries}"
+                    SelectedIndex="{Binding Path=SelectedInvoice}"
+                    Tapped="ListView_Tapped"
+                />
+        </Grid>
+        <Grid x:Name="FilledView" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="1" ZoomMode="Disabled" HorizontalScrollBarVisibility="Auto" Height="620" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled" VerticalAlignment="Top">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="9.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Command="{Binding GoToInvoiceSummaryCommand}" Style="{StaticResource BackButtonStyle}"  VerticalAlignment="Top" Margin="20,10,0,0"/>
+                        <TextBlock Text="Adjust Invoice" Margin="0,0,0,10" Grid.Column="1" Style="{StaticResource TYHeader}" FontFamily="Segoe UI Light" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="0"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView Grid.Column="1"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Stretch"
+                              ItemContainerStyle="{StaticResource SelectedListStyle}"
+                              ItemTemplate="{StaticResource AdjustSummaryTemplate}"
+                              ItemsSource="{Binding Path=AdjustItems}"
+                              Style="{StaticResource ListSummaries}"
+                              SelectedIndex="{Binding Path=SelectedInvoice}"
+                              />
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0.75*"/>
+                                <RowDefinition Height="0.75*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="3.5*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.7*"/>
+                                    <ColumnDefinition Width="9.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image HorizontalAlignment="Left" VerticalAlignment="Center" Source="ms-appx:///Assets/AdjustIcon.png" />
+                                <TextBlock Grid.Column="1" Style="{StaticResource TYLineTextMedium}" Text="You can adjust the Invoice amount from the NET available amount" TextWrapping="Wrap" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="0.95*"/>
+                                    <ColumnDefinition Width="0.9*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource TYLineTextMedium}" Text="Adjustment Type" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                <ToggleButton Grid.Column="1" ClickMode="Press" Content="fee" Command="{Binding Path=FeeCommand}" Width="90" Height="40" IsChecked="{Binding Path=IsFee, Mode=TwoWay}" Checked="Fee_Checked" IsEnabled="{Binding Path=IsFeeEnabled, Mode=TwoWay}"/>
+                                <ToggleButton Grid.Column="2" ClickMode="Press" Content="expense" Command="{Binding Path=ExpenseCommand}" Width="90" Height="40" IsChecked="{Binding Path=IsExpense, Mode=TwoWay}" Checked="Expense_Checked" HorizontalAlignment="Right" IsEnabled="{Binding Path=IsExpenseEnabled, Mode=TwoWay}"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="0.95*"/>
+                                    <ColumnDefinition Width="0.9*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource TYLineTextMedium}" Text="Adjust " TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                <ToggleButton Grid.Column="1" ClickMode="Press" Content="by" Command="{Binding Path=ByCommand}" IsChecked="{Binding Path=IsBy, Mode=TwoWay}" Width="90" Height="40" Checked="By_Checked"/>
+                                <ToggleButton Grid.Column="2" ClickMode="Press" Content="to" Command="{Binding Path=ToCommand}" IsChecked="{Binding Path=IsTo, Mode=TwoWay}" Width="90" Height="40" Checked="To_Checked" HorizontalAlignment="Right"/>
+                            </Grid>
+                            <TextBlock Grid.Row="3" Text="Amount" VerticalAlignment="Center" Style="{StaticResource TYLineTextMedium}"/>
+                            <Grid Grid.Row="4" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.9*"/>
+                                    <ColumnDefinition Width="0.9*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="0.9*"/>
+                                    <ColumnDefinition Width="0.9*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Width="35" Height="30" Margin="-4,0,0,0" x:Name="minusPanelFilled" >
+                                    <TextBlock Width="35" x:Name="minusTextFilled" Height="25" Grid.Column="0" Text="-" FontSize="40" Style="{StaticResource TYLineTextMedium}" Margin="4,-9,0,0" Padding="7,0,0,0"/>
+                                </StackPanel>
+                                <Button ClickMode="Press" Grid.Column="0" Command="{Binding MinusCommand}" VerticalAlignment="Center" Width="40" Height="35" Background="Transparent" Click="Subtract_Click" Tapped="Subtract_Tapped"/>
+
+                                <StackPanel Width="35" Height="30" Grid.Column="1" x:Name="plusPanelFilled">
+                                    <TextBlock Width="35" x:Name="plusTextFilled" Height="30" Grid.Column="1" Text="+" FontSize="30" Style="{StaticResource TYLineTextMedium}" Margin="-6,-5,0,0" Padding="10,0,0,0" />
+                                </StackPanel>
+                                <Button ClickMode="Press" Grid.Column="1" Command="{Binding PlusCommand}" VerticalAlignment="Center" Width="40" Height="35" Background="Transparent"  Click="Add_Click" Tapped="Add_Tapped" IsEnabled="{Binding IsPositiveEnabled}" />
+
+                                <TextBox Grid.Column="2" x:Name="amountTextFilled" TextChanged="AdjustmentTextBox_TextChanged" KeyDown="AdjustmentTextBox_KeyDown" KeyUp="AdjustmentTextBox_KeyUp" Text="{Binding Path=AdjustedAmountStr, Mode=TwoWay}" Margin="10,0,10,0"/>
+
+                                <StackPanel Width="35" Height="30" Grid.Column="3" x:Name="dollarPanelFilled">
+                                    <TextBlock Width="35" x:Name="dollarTextFilled" Height="30" Grid.Column="3" Text="{Binding Path=CurrencyType}" FontSize="20" Style="{StaticResource TYLineTextMedium}" Margin="-3,2,0,0" Padding="14,0,0,0"/>
+                                </StackPanel>
+                                <Button ClickMode="Press" Grid.Column="3" Command="{Binding DollarCommand}" VerticalAlignment="Center" Width="40" Height="35" Background="Transparent" Click="Amount_Click" Tapped="Amount_Tapped"/>
+
+                                <StackPanel Width="35" Height="30" Grid.Column="4" x:Name="percentagePanelFilled">
+                                    <TextBlock Width="35" x:Name="percentageTextFilled" Height="30" Grid.Column="4" Text="%" FontSize="20" Style="{StaticResource TYLineTextMedium}" Margin="-4,2,0,0" Padding="12,0,0,0"/>
+                                </StackPanel>
+                                <Button ClickMode="Press" Grid.Column="4" Command="{Binding PercentageCommand}" VerticalAlignment="Center" Width="40" Height="35" Click="Percentage_Click" Tapped="Percentage_Tapped"/>
+                            </Grid>
+                            <TextBlock Grid.Row="5" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                <Run Text="Your Net Amount is "/>
+                                <Run Text="{Binding Path=NetAmount, Mode=TwoWay}" Foreground="#05DBE7"/>
+                            </TextBlock>
+                            <TextBlock Grid.Row="6" Text="Reason" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Row ="7" Background ="White" 
+                                SelectedValuePath="Id" 
+                                SelectedValue="{Binding Path=SelectedReasonId, Mode=TwoWay}" 
+                                ItemsSource="{Binding Path=ReasonCodes}" 
+                                ItemTemplate="{StaticResource Reasons}"
+                                >
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                            <TextBlock Grid.Row="8" Text="Narrative" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="9" Text="{Binding Path=NarrativeText, Mode=TwoWay}" AcceptsReturn="True"/>
+                            <Grid Grid.Row="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Content="OK" Command="{Binding OKCommand}" VerticalAlignment="Top" Margin="5,15,0,0" HorizontalAlignment="Right" Width="100"/>
+                                <Button Grid.Column="1" Content="Clear" Command="{Binding CancelCommand}" VerticalAlignment="Top" Margin="5,15,0,0" Width="100"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+    
+</core:ViewCore >

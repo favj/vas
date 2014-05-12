@@ -1,0 +1,346 @@
+﻿<core:ViewCore 
+    xmlns:core="using:TyMetrix360.Core.ViewBase"
+    x:Class="TyMetrix360.App.View.RejectionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TyMetrix360.App.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:TyMetrix360.App.Converters"
+    mc:Ignorable="d">
+    <core:ViewCore.Resources>
+        <converters:DateTimeToDateConverter x:Key="DateTimeToDateConverter" />
+        <DataTemplate x:Key="Reasons">
+            <TextBlock Text="{Binding Path=Description}" Foreground="Black"/>
+        </DataTemplate>
+        <DataTemplate x:Key="RejectSummaryTemplate">
+            <Grid Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="440" Height="85">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource TYLineTextSmall}" TextTrimming="WordEllipsis" Margin="0,5,0,0" >
+                    <Run Text="Inv # " />
+                    <Run Text="{Binding Path=InvoiceNumber}" />
+                </TextBlock>
+                <TextBlock Grid.Column="1" FontWeight="Bold"  Style="{StaticResource TYLineTextMedium}" Grid.Row="1" Text="{Binding Path=CompanyName}" TextTrimming="WordEllipsis" HorizontalAlignment="Left" FontFamily="Segoe UI Light" />
+                <Grid Grid.Row="2" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=MatterName}" HorizontalAlignment="Left" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" />
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" Margin="0,0,20,0">
+                        <Run Text="Billed " />
+                        <Run Text="{Binding Path=BilledAmount}" />
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=InvoiceDate, Converter={StaticResource DateTimeToDateConverter}}" HorizontalAlignment="Left" FontFamily="Segoe UI Light"  TextTrimming="WordEllipsis" TextWrapping="NoWrap"/>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" Margin="0,0,20,0">
+                        <Run Text="Net " />
+                        <Run Text="{Binding Path=NetAmount}" />
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="SnappedRejectSummaryTemplate">
+            <Grid Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="310" Height="85">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource TYLineTextSmall}" TextTrimming="WordEllipsis" Margin="0,5,0,0" >
+                    <Run Text="Inv # " />
+                    <Run Text="{Binding Path=InvoiceNumber}" />
+                </TextBlock>
+                <TextBlock Grid.Column="1" FontWeight="Bold"  Style="{StaticResource TYLineTextMedium}" Grid.Row="1" Text="{Binding Path=CompanyName}" TextTrimming="WordEllipsis" HorizontalAlignment="Left" FontFamily="Segoe UI Light" />
+                <Grid Grid.Row="2" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=MatterName}" HorizontalAlignment="Left" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" />
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" Margin="0,0,30,0">
+                        <Run Text="Billed " />
+                        <Run Text="{Binding Path=BilledAmount}" />
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Text="{Binding Path=InvoiceDate, Converter={StaticResource DateTimeToDateConverter}}" HorizontalAlignment="Left" FontFamily="Segoe UI Light"  TextTrimming="WordEllipsis" TextWrapping="NoWrap"/>
+                    <TextBlock Style="{StaticResource TYLineTextSmall}" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Segoe UI Light" TextTrimming="WordEllipsis" TextWrapping="NoWrap" Margin="0,0,30,0">
+                        <Run Text="Net " />
+                        <Run Text="{Binding Path=NetAmount}" />
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </core:ViewCore.Resources>
+    <Grid Background="#192C54" >
+        <VisualStateManager.VisualStateGroups>
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenPortrait"/>
+                
+                <VisualState x:Name="FullScreenLandscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="StandardView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="FilledView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="StandardView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="FilledView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                
+                <VisualState x:Name="Filled">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="StandardView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetName="FilledView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:Name="StandardView" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <ScrollViewer Grid.Row="1" ZoomMode="Disabled" HorizontalScrollBarVisibility="Auto" Height="620" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled" Name="scrlBar" VerticalAlignment="Top">
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="9.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="backButton" Command="{Binding GoToInvoiceSummaryCommand}" Style="{StaticResource BackButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0"/>
+                    <TextBlock Text="Reject Invoice" Margin="0,0,0,0" Grid.Column="1" Style="{StaticResource TYHeader}" FontFamily="Segoe UI Light" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView Grid.Column="1"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              ItemContainerStyle="{StaticResource SelectedListStyle}"
+                              ItemTemplate="{StaticResource RejectSummaryTemplate}"
+                              ItemsSource="{Binding Path=RejectedItems}"
+                              Style="{StaticResource ListSummaries}"
+                              SelectedIndex="{Binding Path=SelectedInvoice}"
+                              />
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="3.6*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Net Amount" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Text="{Binding InvoiceSummary.NetTotal}" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="2" Text="Reason" x:Name="reasonText" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Row ="3" Background ="White" x:Name="ReasonCodeList" 
+                                SelectedValuePath="Id" 
+                                SelectedValue="{Binding Path=SelectedReasonId, Mode=TwoWay}" 
+                                ItemsSource="{Binding Path=ReasonCodes}" 
+                                ItemTemplate="{StaticResource Reasons}" >
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                            <TextBlock Grid.Row="4" Text="Narrative" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="5" x:Name="narrativeText" Text="{Binding Path=NarrativeText, Mode=TwoWay}" AcceptsReturn="True" ContextMenuOpening="narrativeText_ContextMenuOpening" KeyDown="narrativeText_KeyDown" KeyUp="narrativeText_KeyUp"/>
+                            <Grid Grid.Row="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Content="OK" x:Name="okButton" Command="{Binding OKCommand}" VerticalAlignment="Top" Margin="5,5,0,0" HorizontalAlignment="Right" Width="100"/>
+                                <Button Grid.Column="1" Content="Clear" x:Name="clearButton" Command="{Binding ClearCommand}" VerticalAlignment="Top" Margin="5,5,0,0" Width="100"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+            </Grid>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="SnappedView" Background="#192C54" Width="320" Visibility="Collapsed" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row ="1" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding GoToInvoiceSummaryCommand}" Style="{StaticResource SnappedBackButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,92,0,0"/>
+            <TextBlock Text="Reject Invoice" Grid.Row="1" Margin="70,60,0,0" Grid.Column="0" Style="{StaticResource TYLineTextExtraLarge}" FontFamily="Segoe UI Light" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <ListView Grid.Column="0"
+	            Grid.Row="2"
+	            HorizontalAlignment="Left"
+	            VerticalAlignment="Top"
+	            ItemContainerStyle="{StaticResource SelectedListStyle}"
+	            ItemTemplate="{StaticResource SnappedRejectSummaryTemplate}"
+	            ItemsSource="{Binding Path=RejectedItems}"
+	            Style="{StaticResource ListSummaries}"
+	            SelectedIndex="{Binding Path=SelectedInvoice}"
+	            Tapped="ListView_Tapped"
+            />
+        </Grid>
+        <Grid x:Name="FilledView" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <ScrollViewer Grid.Row="1" ZoomMode="Disabled" HorizontalScrollBarVisibility="Auto" Height="620" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled" VerticalAlignment="Top">
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="9.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Command="{Binding GoToInvoiceSummaryCommand}" Style="{StaticResource BackButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                        <TextBlock Text="Reject Invoice" Margin="0,0,0,10" Grid.Column="1" Style="{StaticResource TYHeader}" FontFamily="Segoe UI Light" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView Grid.Column="1"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              ItemContainerStyle="{StaticResource SelectedListStyle}"
+                              ItemTemplate="{StaticResource RejectSummaryTemplate}"
+                              ItemsSource="{Binding Path=RejectedItems}"
+                              Style="{StaticResource ListSummaries}"
+                              SelectedIndex="{Binding Path=SelectedInvoice}"
+                              />
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="3.6*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Net Amount" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Text="{Binding InvoiceSummary.NetTotal}" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="2" Text="Reason" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Row ="3" Background ="White"
+                                SelectedValuePath="Id" 
+                                SelectedValue="{Binding Path=SelectedReasonId, Mode=TwoWay}" 
+                                ItemsSource="{Binding Path=ReasonCodes}" 
+                                ItemTemplate="{StaticResource Reasons}" >
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                            <TextBlock Grid.Row="4" Text="Narrative" Style="{StaticResource TYLineTextMedium}" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="5" Text="{Binding Path=NarrativeText, Mode=TwoWay}" AcceptsReturn="True"/>
+                            <Grid Grid.Row="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Content="OK" Command="{Binding OKCommand}" VerticalAlignment="Top" Margin="5,5,0,0" HorizontalAlignment="Right" Width="100"/>
+                                <Button Grid.Column="1" Content="Clear" Command="{Binding ClearCommand}" VerticalAlignment="Top" Margin="5,5,0,0" Width="100"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</core:ViewCore >

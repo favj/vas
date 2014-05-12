@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="TyMetrixInc.TyMetrix360" Publisher="CN=FA388A7D-005E-4A60-8137-28A0E4AB17B1" Version="1.1.0.1" />
+  <Properties>
+    <DisplayName>TyMetrix 360°</DisplayName>
+    <PublisherDisplayName>TyMetrix, Inc</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="TyMetrix360.App.App">
+      <VisualElements DisplayName="TyMetrix 360°" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="TyMetrix360.App" ForegroundText="light" BackgroundColor="#183F7D" ToastCapable="true">
+        <DefaultTile ShowName="logoOnly" ShortName="TyMetrix 360°" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#192C54" />
+        <InitialRotationPreference>
+          <Rotation Preference="portrait" />
+          <Rotation Preference="landscape" />
+          <Rotation Preference="portraitFlipped" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="privateNetworkClientServer" />
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,61 @@
+﻿<core:UserControlCore
+    xmlns:core="using:TyMetrix360.Core.ViewBase"
+    x:Class="TyMetrix360.App.View.ConfirmationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TyMetrix360.App.View"
+    xmlns:localtemplate="using:TyMetrix360.App.View.Template"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="700"
+    d:DesignWidth="900">
+
+    <core:UserControlCore.Resources>
+        <DataTemplate x:Key="ConfirmationTemplate">
+            <localtemplate:ConfirmationTemplate />
+        </DataTemplate>
+    </core:UserControlCore.Resources>
+
+    <Grid Background="#FFFCD9">
+        <Grid Background="#F0E5D9" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding HeaderText}" Foreground="#000000" FontSize="22" Margin="10,0,0,0"/>
+                <TextBlock Grid.Row="1" Text="total net amount" Foreground="#000000" FontSize="38" FontWeight="Normal" Margin="10,0,0,0"/>
+                <TextBlock Grid.Row="2" Text="{Binding TotalAmount}" Foreground="#3128DD" FontSize="38" FontWeight="Normal" Margin="10,0,0,0"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ListView x:Name="ConfirmationList"
+                            ItemsSource="{Binding Path=ConfirmationList}" 
+                            ItemTemplate="{StaticResource ConfirmationTemplate}"
+                            Margin="10,0,0,0" Visibility="{Binding Path=ShowList}"
+                            SelectionMode="None"
+                            Background="#F0E5D9">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Background" Value="#FFFCD9"/>
+                            <Setter Property="IsHitTestVisible" Value="False"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,1">
+                    <Button Content="cancel" Height="50" Width="100" Foreground="#000000" BorderBrush="#000000" Margin="10,0,10,0" Command="{Binding CancelCommand}"/>
+                    <Button Content="proceed" Height="50" Width="100" Foreground="#000000" BorderBrush="#000000" Margin="10,0,10,0" Command="{Binding ProceedCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</core:UserControlCore>

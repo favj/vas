@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="TyMetrix360.App.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TyMetrix360.App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:TyMetrix360.Core.Converters"
+    xmlns:view="using:TyMetrix360.App.View"
+    mc:Ignorable="d"  Background="#FF1A4691" KeyDown="Page_KeyDown_1" ManipulationStarted="Page_ManipulationStarted_1" PointerMoved="Page_PointerMoved_1" Tapped="Page_Tapped_1" GotFocus="Page_GotFocus_1" LayoutUpdated="Page_LayoutUpdated_1" LostFocus="Page_LostFocus_1" DragEnter="Page_DragEnter_1" DragLeave="Page_DragLeave_1" RightTapped="Page_RightTapped_1" ManipulationStarting="Page_ManipulationStarting_1">
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
+    <Page.BottomAppBar>
+        <AppBar x:Name="MainApplicationBar" Visibility="{Binding ShowAppBar, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Visibility="Visible" Grid.ColumnSpan="4" >
+                    <Button x:Name="SortListButton" Style="{StaticResource SortListAppBarButtonStyle}" Command="{Binding Path=SortListCommand}" Visibility="{Binding ShowSortListButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button x:Name="CancelButton" Style="{StaticResource CancelAppBarButtonStyle}" Command="{Binding Path=CancelCommand}" Visibility="{Binding ShowCancelButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button x:Name="ApproveButton" Style="{StaticResource ApproveAppBarButtonStyle}" Command="{Binding Path=ApproveCommand}" Visibility="{Binding ShowApproveButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button x:Name="AdjustButton" Style="{StaticResource AdjustAppBarButtonStyle}" Command="{Binding Path=AdjustCommand}" Visibility="{Binding ShowAdjustButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button x:Name="RejectButton" Style="{StaticResource RejectAppBarButtonStyle}" Command="{Binding Path=RejectionCommand}" Visibility="{Binding ShowRejectButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button x:Name="UndoButton" Style="{StaticResource UndoAppBarButtonStyle}" Command="{Binding Path=UndoCommand}" Visibility="{Binding ShowUndoButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button x:Name="AddNotesButton" Style="{StaticResource AddNotesAppBarButtonStyle}" Command="{Binding Path=AddNotesCommand}" Visibility="{Binding ShowAddNotesButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="3">
+                    <Button x:Name="DetailButton" Style="{StaticResource DetailAppBarButtonStyle}" Command="{Binding Path=DetailsCommand}" HorizontalAlignment="Right" Visibility="{Binding ShowDetailsButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button x:Name="PrivacyPolicyButton" Style="{StaticResource PrivacyAppBarButtonStyle}"  Command="{Binding Path=PrivacyPolicyCommand}" Visibility="{Binding ShowPrivacyPolicyButton, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left"/>
+                    <Button x:Name="SelectAllButton" Style="{StaticResource SelectAllAppBarButtonStyle}"  Command="{Binding Path=SelectAllCommand}" Visibility="{Binding ShowSelectAllButton, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left"/>
+                    <Button x:Name="DocumentsButton" Style="{StaticResource DocumentsAppBarButtonStyle}" VerticalAlignment="Center" Command="{Binding Path=DocumentsCommand}" Visibility="{Binding ShowDocumentsButton, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left"/>
+                    <Button x:Name="ClearButton" Style="{StaticResource ClearAppBarButtonStyle}" VerticalAlignment="Center" Command="{Binding Path=ClearCommand}" Visibility="{Binding ShowClearButton, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left"/>
+                    <Button x:Name="ExpandButton" Style="{StaticResource FullScreenAppBarButtonStyle}" Margin="0,0,0,-25" VerticalAlignment="Center" Command="{Binding Path=ExpandCommand}" Visibility="{Binding ShowExpandButton, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF1A4691">
+        
+        <Grid x:Name="MainRegion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        </Grid>
+        
+        <Rectangle Grid.Row="0" Grid.Column="0" x:Name="SunGlasses" Fill="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</Page>

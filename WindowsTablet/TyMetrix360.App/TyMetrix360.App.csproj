@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{928663E5-FD60-4FE9-8AC6-D998A7C97ADF}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TyMetrix360.App</RootNamespace>
+    <AssemblyName>TyMetrix360.App</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>TyMetrix360.App_StoreKey.pfx</PackageCertificateKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <PackageCertificateThumbprint>7D61ECC862010AE9B7E8577F6F64C62E25E34AC8</PackageCertificateThumbprint>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CommandParameters\DetailParameter.cs" />
+    <Compile Include="CommandParameters\InvoiceWithDetailParameter.cs" />
+    <Compile Include="CommandParameters\InvoiceParameter.cs" />
+    <Compile Include="CommandParameters\ResetTimer.cs" />
+    <Compile Include="CommandParameters\ReturnToPage.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Converters\BackGroundConverter.cs" />
+    <Compile Include="Converters\SummaryBackGroundConverter.cs" />
+    <Compile Include="Converters\DateTimeToDateConverter.cs" />
+    <Compile Include="Helper\InputPaneHelper.cs" />
+    <Compile Include="Navigation\Destination.cs" />
+    <Compile Include="Navigation\ExistingViewBehavior.cs" />
+    <Compile Include="Navigation\INavigationItem.cs" />
+    <Compile Include="Navigation\NavigationFactory.cs" />
+    <Compile Include="Navigation\NavigationItem.cs" />
+    <Compile Include="Navigation\Navigator.cs" />
+    <Compile Include="Notification\PushNotification.cs" />
+    <Compile Include="ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validator\T360Validator.cs" />
+    <Compile Include="ViewModel\AdjustmentViewModel.cs" />
+    <Compile Include="ViewModel\ConfirmationViewModel.cs" />
+    <Compile Include="ViewModel\DisclaimerViewModel.cs" />
+    <Compile Include="ViewModel\FailureMessageViewModel.cs" />
+    <Compile Include="ViewModel\FailureNumberListViewModel.cs" />
+    <Compile Include="ViewModel\FailureViewModel.cs" />
+    <Compile Include="ViewModel\FaqViewModel.cs" />
+    <Compile Include="ViewModel\IDisclaimerViewModel.cs" />
+    <Compile Include="ViewModel\IFaqViewModel.cs" />
+    <Compile Include="ViewModel\IResetPasswordViewModel.cs" />
+    <Compile Include="ViewModel\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\ISettingsViewModel.cs" />
+    <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\IAdjustmentViewModel.cs" />
+    <Compile Include="ViewModel\IDashboardViewModel.cs" />
+    <Compile Include="ViewModel\IInvoiceLineItemsViewModel.cs" />
+    <Compile Include="ViewModel\IInvoiceLineItemViewModel.cs" />
+    <Compile Include="ViewModel\IInvoiceListViewModel.cs" />
+    <Compile Include="ViewModel\IInvoiceListSummaryViewModel.cs" />
+    <Compile Include="ViewModel\ILoginViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceLineItemsViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceLineItemViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceListViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceListSummaryViewModel.cs" />
+    <Compile Include="ViewModel\IRejectionViewModel.cs" />
+    <Compile Include="ViewModel\IShellViewModel.cs" />
+    <Compile Include="ViewModel\ISupportViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\RejectionViewModel.cs" />
+    <Compile Include="ViewModel\ShellViewModel.cs" />
+    <Compile Include="ViewModel\SupportViewModel.cs" />
+    <Compile Include="View\ConfirmationView.xaml.cs">
+      <DependentUpon>ConfirmationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DisclaimerView.xaml.cs">
+      <DependentUpon>DisclaimerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FailureView.xaml.cs">
+      <DependentUpon>FailureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FaqView.xaml.cs">
+      <DependentUpon>FaqView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IDisclaimerView.cs" />
+    <Compile Include="View\IFaqView.cs" />
+    <Compile Include="View\IResetPasswordView.cs" />
+    <Compile Include="View\ISettingsView.cs" />
+    <Compile Include="View\ResetPasswordView.xaml.cs">
+      <DependentUpon>ResetPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IAdjustmentView.cs" />
+    <Compile Include="View\AdjustmentView.xaml.cs">
+      <DependentUpon>AdjustmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IDashboardView.cs" />
+    <Compile Include="View\IInvoiceLineItemsView.cs" />
+    <Compile Include="View\IInvoiceListSummaryView.cs" />
+    <Compile Include="View\IInvoiceListView.cs" />
+    <Compile Include="View\ILoginView.cs" />
+    <Compile Include="View\IRejectionView.cs" />
+    <Compile Include="View\IShellView.cs" />
+    <Compile Include="View\ISupportView.cs" />
+    <Compile Include="View\RejectionView.xaml.cs">
+      <DependentUpon>RejectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IInvoiceLineItemView.cs" />
+    <Compile Include="View\InvoiceLineItemView.xaml.cs">
+      <DependentUpon>InvoiceLineItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InvoiceLineItemsView.xaml.cs">
+      <DependentUpon>InvoiceLineItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InvoiceListSummaryView.xaml.cs">
+      <DependentUpon>InvoiceListSummaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InvoiceListView.xaml.cs">
+      <DependentUpon>InvoiceListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SupportView.xaml.cs">
+      <DependentUpon>SupportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\ConfirmationTemplate.xaml.cs">
+      <DependentUpon>ConfirmationTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\FailureMessageTemplate.xaml.cs">
+      <DependentUpon>FailureMessageTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\FailureNumberListTemplate.xaml.cs">
+      <DependentUpon>FailureNumberListTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\InvoiceListTemplate.xaml.cs">
+      <DependentUpon>InvoiceListTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\InvoiceSummaryTemplate.xaml.cs">
+      <DependentUpon>InvoiceSummaryTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\InvoiceSummaryTemplateHeader.xaml.cs">
+      <DependentUpon>InvoiceSummaryTemplateHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\InvoiceSummaryTemplateView.xaml.cs">
+      <DependentUpon>InvoiceSummaryTemplateView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="tymetrix.cer" />
+    <None Include="TyMetrix360.App_StoreKey.pfx" />
+    <None Include="TyMetrix360.App_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AdjustIcon.png" />
+    <Content Include="Assets\Checked.png" />
+    <Content Include="Assets\Dashboard.png" />
+    <Content Include="Assets\Expand_Icon.png" />
+    <Content Include="Assets\Faq.png" />
+    <Content Include="Assets\FAQ_Icon.png" />
+    <Content Include="Assets\FlagIconOrange.png" />
+    <Content Include="Assets\InvoiceIcon.png" />
+    <Content Include="Assets\Invoice_Icon.png" />
+    <Content Include="Assets\LineItem_Icon.png" />
+    <Content Include="Assets\Logout.png" />
+    <Content Include="Assets\SettingsIcon.png" />
+    <Content Include="Assets\Settings_Icon.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\LiveTileBackGroundMock.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\LogoSmall.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\star.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Support.png" />
+    <Content Include="Assets\Support_Icon.png" />
+    <Content Include="Assets\T360_Flags_High_Priority%402x.png" />
+    <Content Include="Assets\T360_Flags_Low_Priority%402x.png" />
+    <Content Include="Assets\T360_Flags_Medium_Priority%402x.png" />
+    <Content Include="Assets\TitleLogo.png" />
+    <Content Include="Assets\Unchecked.png" />
+    <Content Include="MVVMLight.Nuget.Readme.txt" />
+    <Page Include="View\Template\FailureNumberListTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Template\FailureMessageTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FailureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Template\ConfirmationTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConfirmationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Template\InvoiceSummaryTemplateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Template\InvoiceSummaryTemplateHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Template\InvoiceSummaryTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Template\InvoiceListTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <None Include="Package.StoreAssociation.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\TyMetrix360.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="View\AdjustmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DisclaimerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FaqView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResetPasswordView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\RejectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InvoiceLineItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InvoiceLineItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InvoiceListSummaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InvoiceListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SupportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TyMetrix360.BusinessObjects\TyMetrix360.BusinessObjects.csproj">
+      <Project>{2398e1cb-e1ef-450f-81d9-850da5d1019f}</Project>
+      <Name>TyMetrix360.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TyMetrix360.Core\TyMetrix360.Core.csproj">
+      <Project>{f629bd67-7a93-4852-a960-c8f362e23cba}</Project>
+      <Name>TyMetrix360.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TyMetrix360.DTO\TyMetrix360.DTO.csproj">
+      <Project>{9a7bffdd-f0cf-4ea6-94a2-9c6388ca4cf8}</Project>
+      <Name>TyMetrix360.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.Win8, Version=4.1.27.22661, Culture=neutral, PublicKeyToken=33a77f5c33c10a68, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\netcore45\GalaSoft.MvvmLight.Extras.Win8.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Win8, Version=4.1.27.22661, Culture=neutral, PublicKeyToken=7f0ea4153a3589fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\netcore45\GalaSoft.MvvmLight.Win8.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=619affe60327fc48, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\netcore45\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>TyMetrix360.App_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
