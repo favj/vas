@@ -1,0 +1,9 @@
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\bin\Debug\Com.VizApp.VizApp.TestClient.exe
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\bin\Debug\Com.VizApp.VizApp.TestClient.pdb
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\obj\Debug\Com.VizApp.VizApp.TestClient.exe
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\obj\Debug\Com.VizApp.VizApp.TestClient.pdb
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\obj\Debug\Com.VizApp.VizApp.TestClient.csprojResolveAssemblyReference.cache
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\obj\Debug\Com.VizApp.VizApp.TestClient.VizAppClient.resources
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\obj\Debug\Com.VizApp.VizApp.TestClient.csproj.GenerateResource.Cache
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\bin\Debug\Newtonsoft.Json.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.TestClient\bin\Debug\Newtonsoft.Json.xml

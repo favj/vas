@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D690C6D1-C07A-4EB2-A264-AAD22C3C9F09}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.VizApp.VizApp.Service</RootNamespace>
+    <AssemblyName>Com.VizApp.VizApp.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\FBData.cs" />
+    <Compile Include="Api\FBEmployer.cs" />
+    <Compile Include="Api\FBFriend.cs" />
+    <Compile Include="Api\FBFriends.cs" />
+    <Compile Include="Api\IVizFBService.cs" />
+    <Compile Include="Api\IVizFriendsService.cs" />
+    <Compile Include="Api\IVizSecurityService.cs" />
+    <Compile Include="Api\IVizService.cs" />
+    <Compile Include="Dao\VizSecurityDAO.cs" />
+    <Compile Include="Dao\VizDAO.cs" />
+    <Compile Include="Dao\VizFBDAO.cs" />
+    <Compile Include="Dao\VizFriendsDAO.cs" />
+    <Compile Include="Impl\VizFBService.cs" />
+    <Compile Include="Impl\VizFriendsService.cs" />
+    <Compile Include="Impl\VizSecurityService.cs" />
+    <Compile Include="Impl\VizService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validator\VizSecurityValidator.cs" />
+    <Compile Include="Validator\VizValidator.cs" />
+    <Compile Include="Validator\VizFriendsValidator.cs" />
+    <Compile Include="Validator\VizFBValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Com.VizApp.Arch\Com.VizApp.Arch.csproj">
+      <Project>{07431d35-baca-47d1-8ebc-c38d42bc3b96}</Project>
+      <Name>Com.VizApp.Arch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

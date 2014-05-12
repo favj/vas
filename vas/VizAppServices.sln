@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.VizApp.Arch", "Com.VizApp.Arch\Com.VizApp.Arch.csproj", "{07431D35-BACA-47D1-8EBC-C38D42BC3B96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VizAppServices", "VizAppServices", "{C8DBA581-9D8D-4B55-981A-F86A68B98E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.VizApp.VizApp.Service", "VizAppServices\Com.VizApp.VizApp.Service\Com.VizApp.VizApp.Service.csproj", "{D690C6D1-C07A-4EB2-A264-AAD22C3C9F09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.VizApp.VizApp.Service.WebApi", "VizAppServices\Com.VizApp.VizApp.Service.WebApi\Com.VizApp.VizApp.Service.WebApi.csproj", "{A2CAD210-8680-4BDE-AF93-FC24455CFC5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.VizApp.VizApp.TestClient", "VizAppServices\Com.VizApp.VizApp.TestClient\Com.VizApp.VizApp.TestClient.csproj", "{F08D5F77-F0A2-45B4-A99B-09E248E9BC41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.VizApp.VizApp.Tests", "VizAppServices\Com.VizApp.VizApp.Tests\Com.VizApp.VizApp.Tests.csproj", "{9CFACA1D-7075-403F-BD4B-4523EC1B96E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07431D35-BACA-47D1-8EBC-C38D42BC3B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07431D35-BACA-47D1-8EBC-C38D42BC3B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07431D35-BACA-47D1-8EBC-C38D42BC3B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07431D35-BACA-47D1-8EBC-C38D42BC3B96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D690C6D1-C07A-4EB2-A264-AAD22C3C9F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D690C6D1-C07A-4EB2-A264-AAD22C3C9F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D690C6D1-C07A-4EB2-A264-AAD22C3C9F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D690C6D1-C07A-4EB2-A264-AAD22C3C9F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2CAD210-8680-4BDE-AF93-FC24455CFC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2CAD210-8680-4BDE-AF93-FC24455CFC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2CAD210-8680-4BDE-AF93-FC24455CFC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2CAD210-8680-4BDE-AF93-FC24455CFC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F08D5F77-F0A2-45B4-A99B-09E248E9BC41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08D5F77-F0A2-45B4-A99B-09E248E9BC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08D5F77-F0A2-45B4-A99B-09E248E9BC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08D5F77-F0A2-45B4-A99B-09E248E9BC41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CFACA1D-7075-403F-BD4B-4523EC1B96E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CFACA1D-7075-403F-BD4B-4523EC1B96E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CFACA1D-7075-403F-BD4B-4523EC1B96E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CFACA1D-7075-403F-BD4B-4523EC1B96E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D690C6D1-C07A-4EB2-A264-AAD22C3C9F09} = {C8DBA581-9D8D-4B55-981A-F86A68B98E69}
+		{A2CAD210-8680-4BDE-AF93-FC24455CFC5C} = {C8DBA581-9D8D-4B55-981A-F86A68B98E69}
+		{F08D5F77-F0A2-45B4-A99B-09E248E9BC41} = {C8DBA581-9D8D-4B55-981A-F86A68B98E69}
+		{9CFACA1D-7075-403F-BD4B-4523EC1B96E8} = {C8DBA581-9D8D-4B55-981A-F86A68B98E69}
+	EndGlobalSection
+EndGlobal

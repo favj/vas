@@ -1,0 +1,17 @@
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Com.VizApp.VizApp.Service.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Com.VizApp.VizApp.Service.pdb
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Com.VizApp.Arch.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.Unity.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Newtonsoft.Json.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Com.VizApp.Arch.pdb
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\bin\Debug\Newtonsoft.Json.xml
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\obj\Debug\Com.VizApp.VizApp.Service.csprojResolveAssemblyReference.cache
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\obj\Debug\Com.VizApp.VizApp.Service.dll
+D:\FA\Projects\VizitSolutions\VizApp\Server\VizAppServices\VizAppServices\VizAppServices\Com.VizApp.VizApp.Service\obj\Debug\Com.VizApp.VizApp.Service.pdb
